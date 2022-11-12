@@ -1,0 +1,41 @@
+import java.util.Scanner;
+public class BinarySearch {
+    public static void main(String[] args) {
+        int n, A[];  
+        int search;
+        Scanner ob = new Scanner(System.in);  
+        //User Input for no of elements and value
+        System.out.println("Enter number of elements");  
+        n = ob.nextInt();   
+        A = new int[n];
+        System.out.println("Enter elements : "); 
+        for (int i=0;i<n;i++){
+            A[i]=ob.nextInt();
+        }
+        //Display of array
+        System.out.println("Array Elements are : ");
+        for (int i=0; i<n; i++){  
+            System.out.print(A[i]+" ");  
+        }
+        //value to be searched
+        System.out.println("\nEnter Value to search : ");
+        search=ob.nextInt();
+        //Binary Search
+       int low=0;
+       int high=A.length-1;
+       while( low <= high ){  
+        int mid =(low+high)/2;
+        if ( A[mid] == search ){  
+            System.out.println("Element is found at index: " + mid); 
+            break;     
+        }
+        else if ( A[mid] < search){  
+            low = mid + 1;   
+        }
+        else{  
+           high = mid - 1;
+        }
+      }
+      ob.close();
+    }
+}
