@@ -1,0 +1,104 @@
+import java.util.Scanner;
+public class Stack2 {
+ 
+    static node top=null;
+    static node temp=null;
+    static Scanner sc= new Scanner(System.in);
+    public static void main(String[] args) {
+        int ch = 0;
+        while (ch != 4) {
+            System.out.println("\n1.Enqueue\n2.Delete\n3.Display\n4.Exit");
+            System.out.println("\nEnter your choice:");
+            ch = sc.nextInt();
+            switch (ch) {
+                case 1:
+                    System.out.println(" Enter the data to be inserted: ");
+                    int i = sc.nextInt();
+                    add(i);
+                    break;
+                case 2:
+                    delete();
+                    break;
+                case 3:
+                    print();
+                    break;
+                case 4:
+                    System.out.println("\nExiting...");
+                    break;
+                default:
+                    System.out.println("\nEnter valid choice");
+                    break;
+            }
+        }
+
+    }
+    static void add(int data)
+    {
+        node n=new node(data);
+        System.out.println(data+" has been added to stack");
+        if(top==null)
+        {
+            top=n;
+            temp=top;
+            return;
+        }
+        
+        n.next=top;
+        top=n;
+        temp.next=top;
+        return;
+    }
+    static void print()
+    {
+        node t=top;
+        
+        if(top==null)
+        {
+            System.out.println("Stack is empty");
+            return;
+        }
+        
+            System.out.println("Stack:-");
+            System.out.println(" ---");
+            do
+            {
+                System.out.println("| "+t.data+" |");
+                t=t.next;
+            }
+            while(t!=top&&top.next!=null);
+            System.out.println(" ---");
+        
+        return;
+    }
+    static void delete()
+    {
+
+        if(top==null)
+        {
+            System.out.print("Nothing to delete");
+            return;
+        }
+        if(temp==top)
+        {
+            top=null;
+            temp=null;
+            return;
+        }
+        System.out.println("-----------------------------");
+        System.out.println("Top element has been deleted");
+        System.out.println("------------------------------");
+        top=top.next;
+        temp.next=top;
+        
+    }
+}
+class node
+{
+    int data;
+    node next;
+    node(int data)
+    {
+        this.data=data;
+        this.next=null;
+    }
+}
