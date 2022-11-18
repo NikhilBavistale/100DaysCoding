@@ -1,0 +1,19 @@
+import java.io.FileInputStream;
+public class File_1{
+    public static void main(String [] args){
+        try{
+        FileInputStream fin=new FileInputStream("Z:\\File1.txt");
+        int i=0;
+        System.out.println("No. of remaining bytes : "+fin.available());
+        fin.skip(2);
+        System.out.println("File Content: ");
+        while((i=fin.read())!=-1){
+            System.out.print((char)i);
+        }
+        fin.close();
+    }
+    catch(Exception e){
+        System.out.println(e);
+    }
+    }
+}
