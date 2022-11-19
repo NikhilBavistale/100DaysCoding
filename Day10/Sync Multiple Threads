@@ -1,0 +1,35 @@
+import java.lang.Thread;
+class Counter {
+	int i=0;
+	synchronized void printCounter() {
+				i++;
+				System.out.println(i);
+	}
+}
+class MyThread1 implements Runnable{
+	 public void run() {
+		 Counter c=new Counter(); 
+		 for(int j=0;j<5;j++) {
+			 c.printCounter();
+	
+		 }
+	 
+}
+}
+class MyThread2 implements Runnable{    
+	public void run(){  
+		 Counter c=new Counter(); 
+		 for(int j=0;j<5;j++) {
+			 c.printCounter();
+	}  
+}
+}  
+public class ThreadSync{
+	public static void main(String args[]) {
+		MyThread1 ob=new MyThread1();
+		Thread t1=new Thread(ob);
+		Thread t2=new Thread(ob);
+		t1.start();
+		t2.start();
+	}
+}
