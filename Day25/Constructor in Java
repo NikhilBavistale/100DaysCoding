@@ -1,0 +1,31 @@
+// Java Program to Illustrate Working of
+// Parameterized Constructor
+package Day;
+// Importing required inputoutput class
+// Class 1
+class Test {
+	// data members of the class.
+	String name;
+	int id;
+
+	// Constructor would initialize data members
+	// With the values of passed arguments while
+	// Object of that class created
+	Test(String name, int id)
+	{
+		this.name = name;
+		this.id = id;
+	}
+}
+
+// Class 2
+class Constr {
+	// main driver method
+	public static void main(String[] args)
+	{
+		// This would invoke the parameterized constructor.
+		Test ob = new Test("Nikhil", 101);
+		System.out.println("Name :" + ob.name
+						+ " and Id :" + ob.id);
+	}
+}
